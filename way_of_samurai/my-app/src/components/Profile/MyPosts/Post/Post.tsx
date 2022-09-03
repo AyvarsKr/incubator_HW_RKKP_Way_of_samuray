@@ -4,13 +4,14 @@ import s from './Post.module.css'
 type propsPost = {
     likesCount: number;
     message: string;
+    id: string;
 }
 
 
-export const Post = (props:propsPost) => {
+export const Post = (props: propsPost) => {
     return (
         <div>
-            <div className={s.item}>
+            <div id={props.id} className={s.item}>
                 <img
                     src="https://avatars.mds.yandex.net/i?id=c8b3607c2857bd49501e1697afb4ceb9-5688986-images-thumbs&n=13"
                     alt=""/>

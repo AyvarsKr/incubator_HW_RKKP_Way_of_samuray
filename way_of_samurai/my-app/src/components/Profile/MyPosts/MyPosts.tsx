@@ -1,8 +1,13 @@
 import s from './MyPosts.module.css'
 import {Post} from "./Post/Post";
+import {postsArrayType} from "../Profile";
 
+type propsMyPosts = {
+    posts: Array<postsArrayType>;
+}
 
-export const MyPosts = () => {
+export const MyPosts = (props: propsMyPosts) => {
+
     return (
         <div className={s.postsBlock}>
             <h3>My posts</h3>
@@ -16,8 +21,11 @@ export const MyPosts = () => {
                 </div>
             </div>
             <div className={s.posts}>
-                <Post message='Hi, how are you?' likesCount={0}/>
-                <Post message='Hi, how are you?' likesCount={23}/>
+                {props.posts.map(el => {
+                    return (
+                        <Post id={el.id} message={el.message} likesCount={el.likesCount}/>
+                    )
+                })}
             </div>
         </div>
     )

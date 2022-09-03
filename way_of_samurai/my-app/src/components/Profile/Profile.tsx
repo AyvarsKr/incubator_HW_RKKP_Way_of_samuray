@@ -3,12 +3,23 @@ import React from "react";
 import {MyPosts} from "./MyPosts/MyPosts";
 import {ProfileInfo} from "./ProfileInfo/ProfileInfo";
 
+export type postsArrayType = {
+    id: string,
+    message: string,
+    likesCount: number
+}
 
-export const Profile = () => {
+
+type propsProfile = {
+    posts: Array<postsArrayType>;
+}
+
+
+export const Profile = (props: propsProfile) => {
     return (
         <>
             <ProfileInfo/>
-            <MyPosts/>
+            <MyPosts posts={props.posts}/>
         </>
     )
 }
