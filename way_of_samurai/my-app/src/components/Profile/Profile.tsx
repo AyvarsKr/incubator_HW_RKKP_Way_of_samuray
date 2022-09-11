@@ -11,7 +11,9 @@ export type postsArrayType = {
 
 
 type propsProfile = {
-    posts: Array<postsArrayType>;
+    posts: Array<postsArrayType>,
+    addPost: () => void,
+    updateNewPostText: () => void
 }
 
 
@@ -19,7 +21,7 @@ export const Profile = (props: propsProfile) => {
     return (
         <>
             <ProfileInfo/>
-            <MyPosts posts={props.posts}/>
+            <MyPosts posts={props.posts} addPost={props.addPost}/>
         </>
     )
 }
